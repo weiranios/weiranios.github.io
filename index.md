@@ -10,6 +10,20 @@
 
 *How?* Use NSCache, networking frameworks that supports caching, set cache policy (e.g., `NSURLRequest.CachePolicy.returnCacheDataElseLoad`).
 
+## 2018-01-22
+
+### Swift Singleton
+
+[Nice article](https://krakendev.io/blog/the-right-way-to-write-a-singleton) says it all.
+
+```swift
+class MyOnlyClass {
+    static let sharedInstance = MyOnlyClass()
+    private init() {}
+}
+```
+
+
 ## 2018-01-18
 
 ### Match `UIImage` size to `UIImageView`
