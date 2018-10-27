@@ -1,5 +1,13 @@
 # iOS
 
+## 2018-01-18
+
+### Match `UIImage` size to `UIImageView`
+
+Why? Scaling images on the fly impact performance.
+
+How? If you have no control over the incoming image size, then scale the image outside of the main thread before displaying.
+
 ## 2017-12-29
 
 ### Make use of the `reuseIdentifier`
