@@ -1,5 +1,11 @@
 # iOS
 
+## 2018-07-21
+
+### Load image: `imageWithContentsOfFile` vs. `imageNamed`
+
+Use `imageWithContentsOfFile` only when you are sure it's used once since iOS won't cache it; otherwise, use `imageNamed`.
+
 ## 2018-06-05
 
 ### What slows down app launch
