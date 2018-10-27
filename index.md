@@ -92,3 +92,18 @@ Load the subviews in the scroll view only when they need to be displayed. Simila
 
 For small image repeated/tiled, use `colorWithPatternImage`
 For large full size image, use `UIImageView`
+
+## 2016-05-02
+
+### What slows down table scroll
+
+- cell creation
+- transparency
+- gradient
+- shadow
+- off-screen drawing
+- image scaling
+- row height calculation
+- api call
+- data transformation
+- deep subviews
