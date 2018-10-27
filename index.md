@@ -17,8 +17,8 @@
 [Nice article](https://krakendev.io/blog/the-right-way-to-write-a-singleton) says it all.
 
 ```swift
-class MyOnlyClass {
-    static let sharedInstance = MyOnlyClass()
+class MySingleton {
+    static let sharedInstance = MySingleton()
     private init() {}
 }
 ```
@@ -71,6 +71,15 @@ Opaque means no transparency defined. If not set, it will impact performance, es
 - Networking, e.g., API calls
 - Large computations
 - Use GCD, and/or Operation
+
+## 2017-02-15
+
+### Don't keep instantiating heavy objects
+
+*What?* Classes like NSDateFormatter, NSCalendar are heavy to instantiate.
+
+*How?* Create *singleton* (and it should be thread-safe if the singleton is created properly.)
+
 
 ## 2016-07-05
 
