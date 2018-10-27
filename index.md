@@ -47,3 +47,9 @@ How? All heavy lifting (time consuming) should be moved out of main thread, incl
 - Networking, e.g., API calls
 - Large computations
 - Use GCD, and/or Operation
+
+## 2016-07-05
+
+### `UIScrollView` performance
+
+Load the subviews in the scroll view only when they need to be displayed. Similar to how `UITableView` works.
