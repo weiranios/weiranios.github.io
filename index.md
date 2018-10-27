@@ -1,5 +1,13 @@
 # iOS
 
+## 2018-06-05
+
+### What slows down app launch
+
+- api calls
+- disk I/O
+- data preparation
+
 ## 2018-02-14
 
 ### When/what/how to cache
