@@ -80,9 +80,15 @@ Opaque means no transparency defined. If not set, it will impact performance, es
 
 *How?* Create *singleton* (and it should be thread-safe if the singleton is created properly.)
 
-
 ## 2016-07-05
 
 ### `UIScrollView` performance
 
 Load the subviews in the scroll view only when they need to be displayed. Similar to how `UITableView` works.
+
+## 2016-05-28
+
+### Background: `colorWithPatternImage` vs. `UIImageView`
+
+For small image repeated/tiled, use `colorWithPatternImage`
+For large full size image, use `UIImageView`
