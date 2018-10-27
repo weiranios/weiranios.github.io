@@ -26,3 +26,16 @@ Opaque means no transparency defined. If not set, it will impact performance, es
 Why? iOS needs to go deeper into the view hierarchy to figure out what color to render.
 
 How? Use `Debug\Color Blended Layers` option to locate non-opaque views.
+
+## 2017-07-12
+
+### Never block main thread
+
+Why? UI rendering (*UIKit*) works in main thread.
+
+How? All heavy lifting (time consuming) should be moved out of main thread, including:
+
+- Disk I/O
+- Networking, e.g., API calls
+- Large computations
+- Use GCD, and/or Operation
