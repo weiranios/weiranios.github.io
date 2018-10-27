@@ -80,6 +80,14 @@ Opaque means no transparency defined. If not set, it will impact performance, es
 
 *How?* Create *singleton* (and it should be thread-safe if the singleton is created properly.)
 
+## 2016-10-10
+
+### Persitent local storage options
+
+- `NSUserDefaults` - tiny piece of info
+- `JSON` files, `NSCoding` - large one time data, when used, needs to first load from disk to memory. And entire payload has to be loaded before be used.
+- `SQLite`, `Core Data` - large queryable data
+
 ## 2016-07-05
 
 ### `UIScrollView` performance
