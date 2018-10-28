@@ -1,5 +1,20 @@
 # iOS
 
+## 2018-09-16
+
+### Steps to performance tuning
+
+- measure existing performance, set up baseline.
+- re-measure performance, compare, document, share.
+- focus on total impact (vs. just an area that are not used by many users, not used frequently)
+- reproduce -> profile -> modify -> repeat
+- good to have automated performance tests to avoid regressions over time (the thousand performance paper cuts)
+- important to understand user usage pattern, so that target is clear and optimizing on the most valuable areas.
+- break large task into smaller steps and write unit tests for each step. That helps pinpoint issue.
+- integration tests are measured from UX perspective, covering not just the task, but all other areas that work together.
+- always start with integration tests, so that you know what area to start the tuning.
+- use `Time Profiler` to get performance profile.
+
 ## 2018-07-21
 
 ### Load image: `imageWithContentsOfFile` vs. `imageNamed`
@@ -93,6 +108,8 @@ Opaque means no transparency defined. If not set, it will impact performance, es
 *What?* Classes like NSDateFormatter, NSCalendar are heavy to instantiate.
 
 *How?* Create *singleton* (and it should be thread-safe if the singleton is created properly.)
+
+*Tips:* If possible, use UNIX epoch (an Int) to represent a date. That speeds up date object creation (vs. creation by parsing date formatted string.)
 
 ## 2016-10-10
 
