@@ -4,6 +4,8 @@
 
 ### Steps to performance tuning
 
+Notes from [Practical Approaches to Great App Performance](https://developer.apple.com/videos/play/wwdc2018/407/)
+
 - measure existing performance, set up baseline.
 - re-measure performance, compare, document, share.
 - focus on total impact (vs. just an area that are not used by many users, not used frequently)
@@ -14,6 +16,24 @@
 - integration tests are measured from UX perspective, covering not just the task, but all other areas that work together.
 - always start with integration tests, so that you know what area to start the tuning.
 - use `Time Profiler` to get performance profile.
+- if not debugging threads related, better not to group the trace by thread. To disable it: `Call Tree` -> uncheck `Separate by Thread`.
+- how to remove *noise*, or focus on the *signal*
+  - focus on one thread at a time. To do that: select only the thread that cost the most in the `Track Filter` panel
+  - focus on one message at a time. To do that: select the suspecious in the `Heaviest back trace` panel
+  - remove recursions. To do that: `Call Tree` -> check `Flatten recursion`.
+  - drill down (bring up to the top level). To do that: right click on the trace -> `Focus on subtree`
+  - hide all *objc* related messages in call tree (bubble those "cost of doing business" up to the parent callers). To do that: right click -> `Charge 'libobjc.A.dylib' to callers`
+  - hide all small "contributors". Say for a 2-sec sample range, filter out only trace that > 20ms, that means only focusing on contributors that cost >1%. To do that: `Call trace constraints` -> 20 for min.
+- even the slowness happens in system lib, there is possibilities to optimize
+  - the data you passed into the system lib to operate
+  - how many times you are calling this system method
+  - system method is calling back into your code via delegates
+- key-value observer (KVO) (i.e., "update UI whenever model changes") in a loop could impact performance
+- instant app launch means? 500ms to 600ms (that's how long it takes the zoom animation from the home screen)
+- do initialization, such as DB init, in the background thread, to improve launch time.
+- as little work as possible in the initializers
+- load data on screen synchronously, off-screen data async.
+- strive for **constant** time.
 
 ## 2018-07-21
 
@@ -51,7 +71,6 @@ class MySingleton {
     private init() {}
 }
 ```
-
 
 ## 2018-01-18
 
