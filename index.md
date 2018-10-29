@@ -41,6 +41,12 @@ Notes from [Practical Approaches to Great App Performance](https://developer.app
 
 Use `imageWithContentsOfFile` only when you are sure it's used once since iOS won't cache it; otherwise, use `imageNamed`.
 
+## 2018-06-27
+
+### Unregistering NSNotificationCenter observers is optional in iOS 9+
+
+See Apple [release note](https://developer.apple.com/library/archive/releasenotes/Foundation/RN-FoundationOlderNotes/index.html#10_11NotificationCenter)
+
 ## 2018-06-17
 
 ### Live Rendering
