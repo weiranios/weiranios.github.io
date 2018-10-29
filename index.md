@@ -123,6 +123,18 @@ Opaque means no transparency defined. If not set, it will impact performance, es
 
 *How?* Use `Debug\Color Blended Layers` option to locate non-opaque views.
 
+## 2017-12-21
+
+### NSError
+
+Notes from [NSError](https://nshipster.com/nserror/)
+
+- `domain`: the subsystem
+- `code`: error code within that subsystem
+- `userInfo`: a dictionary, contains all other details
+
+Also available: `localizedDescription`
+
 ## 2017-07-12
 
 ### Never block main thread
