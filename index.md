@@ -41,6 +41,22 @@ Notes from [Practical Approaches to Great App Performance](https://developer.app
 
 Use `imageWithContentsOfFile` only when you are sure it's used once since iOS won't cache it; otherwise, use `imageNamed`.
 
+## 2018-06-17
+
+### Live Rendering
+
+Notes from [IBInspectable / IBDesignable](https://nshipster.com/ibinspectable-ibdesignable/)
+
+`user-defined runtime attributes`: allows updating attribute value in Xcode
+
+`IBInspectable`: easlier editable in Xcode
+
+Can add inspectable property to existing classes via `extension`.
+
+`IBDesignable`: WYSIWYG.
+
+Use `prepareForInterfaceBuilder()` to provide dummy data at design time. It's not run in shipping code.
+
 ## 2018-06-05
 
 ### What slows down app launch
