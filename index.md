@@ -75,6 +75,41 @@ Use `prepareForInterfaceBuilder()` to provide dummy data at design time. It's no
 
 *How?* Use NSCache, networking frameworks that supports caching, set cache policy (e.g., `NSURLRequest.CachePolicy.returnCacheDataElseLoad`).
 
+## 2018-01-25
+
+### Capture list/value
+
+Notes from [Capturing Values In Swift Closures](https://marcosantadev.com/capturing-values-swift-closures/)
+
+Within a closure, referring to variables outside of th closure, strong references are created.
+
+```swift
+class MyClass {
+    let a = 1
+    let myClosure = {
+        print(self.a)
+    }
+    myClosure() // 1
+    a = 2
+    myClosure() // 2
+}
+```
+
+If we don't want the strong ref, we can specify `weak`.
+
+```swift
+class MyClass {
+    let a = 1
+    let myClosure = { [weak self] in
+        guard let strongSelf = self else { return }
+        print(strongSelf.a)
+    }
+    myClosure() // 1
+    a = 2
+    myClosure() // 1    <-- here's the difference
+}
+```
+
 ## 2018-01-22
 
 ### Swift Singleton
