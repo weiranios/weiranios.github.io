@@ -209,6 +209,14 @@ Also available: `localizedDescription`
 - Large computations
 - Use GCD, and/or Operation
 
+## 2017-02-18
+
+### Dynamic dispatch
+
+*What?* Since **override** is support by Swift, it has to be determined at runtime what methods/properties to call, so an indirect call cannot be avoid.
+
+When performance is important, to minimize and help compiler optimization, use `private`, `final` access levels to declare methods/properties.
+
 ## 2017-02-15
 
 ### Don't keep instantiating heavy objects
