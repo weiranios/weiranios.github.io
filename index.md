@@ -41,6 +41,13 @@ Notes from [Practical Approaches to Great App Performance](https://developer.app
 
 Use `imageWithContentsOfFile` only when you are sure it's used once since iOS won't cache it; otherwise, use `imageNamed`.
 
+### Access levels
+
+- `open/public`: cross-module
+- `internal`: the default, within same module
+- `fileprivate`: within same file
+- `private`: within same enclosing declaration and extensions
+
 ## 2018-06-27
 
 ### Unregistering NSNotificationCenter observers is optional in iOS 9+
