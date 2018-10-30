@@ -81,6 +81,12 @@ Use `prepareForInterfaceBuilder()` to provide dummy data at design time. It's no
 
 *How?* Use NSCache, networking frameworks that supports caching, set cache policy (e.g., `NSURLRequest.CachePolicy.returnCacheDataElseLoad`).
 
+## 2018-02-06
+
+### When to use `unowned` variable
+
+Only when you want to use a `weak` variable but are sure it will never be `nil` once it has been set during initialization.
+
 ## 2018-01-25
 
 ### Capture list/value
