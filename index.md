@@ -98,6 +98,12 @@ Use `@escaping` to mark it as escaping.
 - `let` means constant, and cannot be set after initialized.
 - read-only also means cannot be set but since it is computated so it could return different value at different times.
 
+## 2018-04-09
+
+### 2 Swift examples of Decorator Design Pattern
+
+`Extension` and `Delegation`
+
 ## 2018-02-14
 
 ### When/what/how to cache
