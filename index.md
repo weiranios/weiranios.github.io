@@ -70,6 +70,19 @@ Can add inspectable property to existing classes via `extension`.
 
 Use `prepareForInterfaceBuilder()` to provide dummy data at design time. It's not run in shipping code.
 
+## 2018-06-09
+
+### Escaping closure
+
+A clusure that is
+
+- passed in to a function as parameter
+- called after the function has returned
+
+Closures are non-escaping by default in Swift 3+.
+
+Use `@escaping` to mark it as escaping.
+
 ## 2018-06-05
 
 ### What slows down app launch
