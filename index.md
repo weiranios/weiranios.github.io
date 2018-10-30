@@ -215,6 +215,21 @@ Notes from [NSError](https://nshipster.com/nserror/)
 
 Also available: `localizedDescription`
 
+## 2017-07-31
+
+### KVO
+
+Notify objects when changes to properties of other objects. Very similar to willSet and didSet, but they can be defined outside of the type defination.
+
+```swift
+observation = observe(
+            \.objectToObserve.myDate,
+            options: [.old, .new]
+        ) { object, change in
+            print("myDate changed from: \(change.oldValue!), updated to: \(change.newValue!)")
+        }
+```
+
 ## 2017-07-12
 
 ### Never block main thread
