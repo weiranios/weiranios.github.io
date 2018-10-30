@@ -71,6 +71,13 @@ Use `prepareForInterfaceBuilder()` to provide dummy data at design time. It's no
 - disk I/O
 - data preparation
 
+## 2018-05-25
+
+### `let` vs. read-only (computed)
+
+- `let` means constant, and cannot be set after initialized.
+- read-only also means cannot be set but since it is computated so it could return different value at different times.
+
 ## 2018-02-14
 
 ### When/what/how to cache
