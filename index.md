@@ -242,10 +242,10 @@ When performance is important, to minimize and help compiler optimization, use `
 
 ## 2016-12-09
 
-### bound vs. frame
+### bounds vs. frame
 
-- bound: uses parent view's coordinate system, used to place in parent view.
-- frame: uses its own coordinate system, used to place view in itself.
+- bounds: uses its own coordinate system, used to place views in itself.
+- frame: uses parent view's coordinate system, used to place it in parent view.
 
 ## 2016-10-10
 
