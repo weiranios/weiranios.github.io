@@ -213,6 +213,12 @@ Also available: `localizedDescription`
 - `JSON` files, `NSCoding` - large one time data, when used, needs to first load from disk to memory. And entire payload has to be loaded before be used.
 - `SQLite`, `Core Data` - large queryable data
 
+## 2016-07-14
+
+### When to use `weak` variable
+
+Object A holds a reference to Object B while Object B also holds a reference to Object A, then we have a retain cycle here. To break it, one of the object should be defined as `weak`. So the ARC can eventually count down to zero then release both objects.
+
 ## 2016-07-05
 
 ### `UIScrollView` performance
