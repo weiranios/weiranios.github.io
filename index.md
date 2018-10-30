@@ -222,6 +222,12 @@ Also available: `localizedDescription`
 - Large computations
 - Use GCD, and/or Operation
 
+## 2017-03-18
+
+### Responder chain
+
+UIControl actions will send events to a chain of responders, if the 1st one doesn't implement the action, then it goes deeper to the 2nd one, till it's handled or no more responders in the chain.
+
 ## 2017-02-18
 
 ### Dynamic dispatch
