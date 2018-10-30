@@ -240,6 +240,13 @@ When performance is important, to minimize and help compiler optimization, use `
 
 *Tips:* If possible, use UNIX epoch (an Int) to represent a date. That speeds up date object creation (vs. creation by parsing date formatted string.)
 
+## 2016-12-09
+
+### bound vs. frame
+
+- bound: uses parent view's coordinate system, used to place in parent view.
+- frame: uses its own coordinate system, used to place view in itself.
+
 ## 2016-10-10
 
 ### Persitent local storage options
