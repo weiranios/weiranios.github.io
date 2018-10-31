@@ -1,8 +1,8 @@
 # iOS
 
-## 2018-09-16
+## Steps to performance tuning
 
-### Steps to performance tuning
+###### 2018-09-16
 
 Notes from [Practical Approaches to Great App Performance](https://developer.apple.com/videos/play/wwdc2018/407/)
 
@@ -35,9 +35,9 @@ Notes from [Practical Approaches to Great App Performance](https://developer.app
 - load data on screen synchronously, off-screen data async.
 - strive for **constant** time.
 
-## 2018-07-21
+## Load image: `imageWithContentsOfFile` vs. `imageNamed`
 
-### Load image: `imageWithContentsOfFile` vs. `imageNamed`
+###### 2018-07-21
 
 Use `imageWithContentsOfFile` only when you are sure it's used once since iOS won't cache it; otherwise, use `imageNamed`.
 
