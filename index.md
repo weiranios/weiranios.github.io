@@ -2,7 +2,7 @@
 
 ## Steps to performance tuning
 
-###### 2018-09-16
+##### 2018-09-16
 
 Notes from [Practical Approaches to Great App Performance](https://developer.apple.com/videos/play/wwdc2018/407/)
 
@@ -41,22 +41,24 @@ Notes from [Practical Approaches to Great App Performance](https://developer.app
 
 Use `imageWithContentsOfFile` only when you are sure it's used once since iOS won't cache it; otherwise, use `imageNamed`.
 
-### Access levels
+## Access levels
+
+###### 2018-07-20
 
 - `open/public`: cross-module
 - `internal`: the default, within same module
 - `fileprivate`: within same file
 - `private`: within same enclosing declaration and extensions
 
-## 2018-06-27
+## Unregistering NSNotificationCenter observers is optional in iOS 9+
 
-### Unregistering NSNotificationCenter observers is optional in iOS 9+
+###### 2018-06-27
 
 See Apple [release note](https://developer.apple.com/library/archive/releasenotes/Foundation/RN-FoundationOlderNotes/index.html#10_11NotificationCenter)
 
-## 2018-06-17
+## Live Rendering
 
-### Live Rendering
+###### 2018-06-17
 
 Notes from [IBInspectable / IBDesignable](https://nshipster.com/ibinspectable-ibdesignable/)
 
@@ -70,9 +72,9 @@ Can add inspectable property to existing classes via `extension`.
 
 Use `prepareForInterfaceBuilder()` to provide dummy data at design time. It's not run in shipping code.
 
-## 2018-06-09
+## Escaping closure
 
-### Escaping closure
+###### 2018-06-09
 
 A clusure that is
 
@@ -83,30 +85,30 @@ Closures are non-escaping by default in Swift 3+.
 
 Use `@escaping` to mark it as escaping.
 
-## 2018-06-05
+## What slows down app launch
 
-### What slows down app launch
+###### 2018-06-05
 
 - api calls
 - disk I/O
 - data preparation
 
-## 2018-05-25
+## `let` vs. read-only (computed)
 
-### `let` vs. read-only (computed)
+###### 2018-05-25
 
 - `let` means constant, and cannot be set after initialized.
 - read-only also means cannot be set but since it is computated so it could return different value at different times.
 
-## 2018-04-09
+## 2 Swift examples of Decorator Design Pattern
 
-### 2 Swift examples of Decorator Design Pattern
+###### 2018-04-09
 
 `Extension` and `Delegation`
 
-## 2018-02-14
+## When/what/how to cache
 
-### When/what/how to cache
+###### 2018-02-14
 
 *When?* Read a lot, but no/min updates.
 
@@ -114,15 +116,15 @@ Use `@escaping` to mark it as escaping.
 
 *How?* Use NSCache, networking frameworks that supports caching, set cache policy (e.g., `NSURLRequest.CachePolicy.returnCacheDataElseLoad`).
 
-## 2018-02-06
+## When to use `unowned` variable
 
-### When to use `unowned` variable
+###### 2018-02-06
 
 Only when you want to use a `weak` variable but are sure it will never be `nil` once it has been set during initialization.
 
-## 2018-01-25
+## Capture list/value
 
-### Capture list/value
+###### 2018-01-25
 
 Notes from [Capturing Values In Swift Closures](https://marcosantadev.com/capturing-values-swift-closures/)
 
@@ -155,9 +157,9 @@ class MyClass {
 }
 ```
 
-## 2018-01-22
+## Swift Singleton
 
-### Swift Singleton
+###### 2018-01-22
 
 [Nice article](https://krakendev.io/blog/the-right-way-to-write-a-singleton) says it all.
 
@@ -168,17 +170,17 @@ class MySingleton {
 }
 ```
 
-## 2018-01-18
+## Match `UIImage` size to `UIImageView`
 
-### Match `UIImage` size to `UIImageView`
+###### 2018-01-18
 
 *Why?* Scaling images on the fly impact performance.
 
 *How?* If you have no control over the incoming image size, then scale the image outside of the main thread before displaying.
 
-## 2017-12-29
+## Make use of the `reuseIdentifier`
 
-### Make use of the `reuseIdentifier`
+###### 2017-12-29
 
 For:
 
@@ -193,9 +195,9 @@ Remember to reuse
 - headers and footers
 - supplementary views
 
-## 2017-12-24
+## Set views as Opaque, if possible
 
-### Set views as Opaque, if possible
+###### 2017-12-24
 
 Opaque means no transparency defined. If not set, it will impact performance, especially the animated UIs.
 
@@ -203,9 +205,9 @@ Opaque means no transparency defined. If not set, it will impact performance, es
 
 *How?* Use `Debug\Color Blended Layers` option to locate non-opaque views.
 
-## 2017-12-21
+## NSError
 
-### NSError
+###### 2017-12-21
 
 Notes from [NSError](https://nshipster.com/nserror/)
 
@@ -215,9 +217,9 @@ Notes from [NSError](https://nshipster.com/nserror/)
 
 Also available: `localizedDescription`
 
-## 2017-07-31
+## KVO
 
-### KVO
+###### 2017-07-31
 
 Notify objects when changes to properties of other objects. Very similar to willSet and didSet, but they can be defined outside of the type defination.
 
@@ -230,9 +232,9 @@ observation = observe(
         }
 ```
 
-## 2017-07-12
+## Never block main thread
 
-### Never block main thread
+###### 2017-07-12
 
 *Why?* UI rendering (*UIKit*) works in main thread.
 
@@ -243,23 +245,23 @@ observation = observe(
 - Large computations
 - Use GCD, and/or Operation
 
-## 2017-03-18
+## Responder chain
 
-### Responder chain
+###### 2017-03-18
 
 UIControl actions will send events to a chain of responders, if the 1st one doesn't implement the action, then it goes deeper to the 2nd one, till it's handled or no more responders in the chain.
 
-## 2017-02-18
+## Dynamic dispatch
 
-### Dynamic dispatch
+###### 2017-02-18
 
 *What?* Since **override** is support by Swift, it has to be determined at runtime what methods/properties to call, so an indirect call cannot be avoid.
 
 When performance is important, to minimize and help compiler optimization, use `private`, `final` access levels to declare methods/properties.
 
-## 2017-02-15
+## Don't keep instantiating heavy objects
 
-### Don't keep instantiating heavy objects
+###### 2017-02-15
 
 *What?* Classes like NSDateFormatter, NSCalendar are heavy to instantiate.
 
@@ -267,43 +269,43 @@ When performance is important, to minimize and help compiler optimization, use `
 
 *Tips:* If possible, use UNIX epoch (an Int) to represent a date. That speeds up date object creation (vs. creation by parsing date formatted string.)
 
-## 2016-12-09
+## bounds vs. frame
 
-### bounds vs. frame
+###### 2016-12-09
 
 - bounds: uses its own coordinate system, used to place views in itself.
 - frame: uses parent view's coordinate system, used to place it in parent view.
 
-## 2016-10-10
+## Persitent local storage options
 
-### Persitent local storage options
+###### 2016-10-10
 
 - `NSUserDefaults` - tiny piece of info
 - `JSON` files, `NSCoding` - large one time data, when used, needs to first load from disk to memory. And entire payload has to be loaded before be used.
 - `SQLite`, `Core Data` - large queryable data
 
-## 2016-07-14
+## When to use `weak` variable
 
-### When to use `weak` variable
+###### 2016-07-14
 
 Object A holds a reference to Object B while Object B also holds a reference to Object A, then we have a retain cycle here. To break it, one of the object should be defined as `weak`. So the ARC can eventually count down to zero then release both objects.
 
-## 2016-07-05
+## `UIScrollView` performance
 
-### `UIScrollView` performance
+###### 2016-07-05
 
 Load the subviews in the scroll view only when they need to be displayed. Similar to how `UITableView` works.
 
-## 2016-05-28
+## Background: `colorWithPatternImage` vs. `UIImageView`
 
-### Background: `colorWithPatternImage` vs. `UIImageView`
+###### 2016-05-28
 
 For small image repeated/tiled, use `colorWithPatternImage`
 For large full size image, use `UIImageView`
 
-## 2016-05-02
+## What slows down table scroll
 
-### What slows down table scroll
+###### 2016-05-02
 
 - cell creation
 - transparency
